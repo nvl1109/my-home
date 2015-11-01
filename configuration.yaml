@@ -1,0 +1,565 @@
+###  Global configuration  ###
+homeassistant:
+  name: <redacted>
+  latitude: <redacted>
+  longitude: <redacted>
+  temperature_unit: F
+  time_zone: America/New_York
+  customize:
+    # Computer
+    switch.monitors:
+      icon: hardware:desktop-windows
+    switch.sound:
+      icon: av:volume-up
+    # Craft Room
+    sensor.craft_room_humidity:
+      icon: invert-colors
+      friendly_name: Humidity
+    sensor.craft_room_temperature:
+      icon: mdi:thermometer
+      friendly_name: Temperature
+    sensor.craft_room_motion:
+      icon: maps:directions-walk
+      friendly_name: Motion
+    light.craft_room:
+      friendly_name: Light
+    # Living Room
+    sensor.living_room_humidity:
+      icon: invert-colors
+      friendly_name: Humidity
+    sensor.living_room_temperature:
+      icon: mdi:thermometer
+      friendly_name: Temperature
+    sensor.living_room_motion:
+      icon: maps:directions-walk
+      friendly_name: Motion
+    light.living_room__hall:
+      friendly_name: Light
+    # Bedroom
+    sensor.bedroom_humidity:
+      icon: invert-colors
+      friendly_name: Humidity
+    sensor.bedroom_temperature:
+      icon: mdi:thermometer
+      friendly_name: Temperature
+    sensor.bedroom_motion:
+      icon: maps:directions-walk
+      friendly_name: Motion
+    light.bedroom:
+      friendly_name: Light
+    # Conditions
+    sun.sun:
+      icon: mdi:weather-sunny
+    sensor.weather_humidity:
+      icon: invert-colors
+      friendly_name: Humidity
+    sensor.weather_temperature:
+      icon: mdi:thermometer
+      friendly_name: Temperature
+    sensor.weather_summary:
+      icon: mdi:leaf
+      friendly_name: Conditions
+    # Hide scripts
+    script.craft_room_timed_light:
+      hidden: true
+    script.craft_room_timer:
+      hidden: true
+    script.living_room_timed_light:
+      hidden: true
+    script.living_room_timer:
+      hidden: true
+    script.bedroom_timed_light:
+      hidden: true
+    script.bedroom_timer:
+      hidden: true
+    script.tv_time:
+      hidden: true
+    script.nightlight_timed_light:
+      hidden: true
+    script.nightlight_timer:
+      hidden: true
+    script.sleep:
+      hidden: true
+    # Hide scenes
+    scene.bright_bedroom:
+      hidden: true
+    scene.nightlight:
+      hidden: true
+    # Scenes
+    scene.lights_on:
+      icon: mdi:lightbulb
+    scene.lights_off:
+      icon: mdi:lightbulb-outline
+    scene.romantic:
+      icon: favorite
+    scene.disco:
+      icon: mdi:image-filter-tilt-shift
+    # Media players
+    media_player.mpd:
+      icon: image:music-note
+    media_player.amazon_fire_tv:
+      icon: mdi:amazon
+    # People
+    switch.sleeping:
+      icon: mdi:sleep
+
+###  Media Players  ###
+media_player:
+  platform: mpd
+  server: localhost
+  port: 6600
+media_player 2:
+  platform: firetv
+  host: localhost:5556
+media_player 3:
+  platform: cast
+  host: 192.168.1.13
+
+###  Zones  ###
+zone:
+  name: Home
+  latitude: <redacted>
+  longitude: <redacted>
+  radius: 100
+  icon: social:people
+
+###  Groups  ###
+group:
+  People:
+    - device_tracker.<redacted>
+    - switch.sleeping
+  Outdoors:
+    - sensor.weather_summary
+    - sun.sun
+    - sensor.weather_temperature
+    - sensor.weather_humidity
+  Scenes:
+    - scene.lights_on
+    - scene.lights_off
+    - scene.romantic
+    - scene.disco
+  Computer:
+    - switch.sound
+    - switch.monitors
+  Living Room:
+    - sensor.living_room_temperature
+    - sensor.living_room_humidity
+    - sensor.living_room_motion
+    - light.living_room__hall
+  Craft Room:
+    - sensor.craft_room_temperature
+    - sensor.craft_room_humidity
+    - sensor.craft_room_motion
+    - light.craft_room
+  Bedroom:
+    - sensor.bedroom_temperature
+    - sensor.bedroom_humidity
+    - sensor.bedroom_motion
+    - light.bedroom
+  Bathroom:
+    - light.bathroom
+
+###  Switches  ###
+switch:
+  platform: command_switch
+  switches:
+    sound:
+      oncmd: /home/<redacted>/windows.sh 192.168.1.2:8888 '<redacted>' sound_toggle
+      offcmd: /home/<redacted>/windows.sh 192.168.1.2:8888 '<redacted>' sound_toggle
+      initial: 'on'
+    monitors:
+      oncmd: /home/<redacted>/windows.sh 192.168.1.2:8888 '<redacted>' monitors_on
+      offcmd: /home/<redacted>/windows.sh 192.168.1.2:8888 '<redacted>' monitors_off
+      initial: 'on'
+switch 2:
+  platform: mqtt
+  name: "Sleeping"
+  state_topic: "nfc/sleeping"
+  command_topic: "nfc/sleeping"
+  qos: 0
+  payload_on: "yes"
+  payload_off: "no"
+  optimistic: false
+
+###  Scenes  ###
+scene:
+  - name: Romantic
+    fuzzy_match: 0.2
+    entities:
+      light.bedroom:
+        state: on
+        brightness: 150
+        xy_color: [0.37, 0.24]
+      light.craft_room: off
+      light.bathroom: off
+      light.living_room__hall:
+        state: on
+        brightness: 150
+        xy_color: [0.37, 0.24]
+  - name: Disco
+    entities:
+      light.living_room__hall:
+        state: on
+        effect: colorloop
+        brightness: 255
+      light.bedroom:
+        state: on
+        effect: colorloop
+        brightness: 255
+      light.bathroom:
+        state: on
+        effect: colorloop
+        brightness: 255
+  - name: Lights On
+    fuzzy_match: 0.2
+    entities:
+      light.craft_room:
+        state: on
+      light.living_room__hall:
+        state: on
+        brightness: 255
+        xy_color: [0.31, 0.32]
+      light.bedroom:
+        state: on
+        brightness: 255
+        xy_color: [0.31, 0.32]
+      light.bathroom:
+        state: on
+        brightness: 255
+        xy_color: [0.31, 0.32]
+  - name: Lights Off
+    entities:
+      light.bedroom: off
+      light.living_room__hall: off
+      light.craft_room: off
+      light.bathroom: off
+  - name: Bright Bedroom
+    fuzzy_match: 0.2
+    entities:
+      light.bedroom:
+        state: on
+        brightness: 255
+        xy_color: [0.31, 0.32]
+      light.bathroom:
+        state: on
+        brightness: 255
+        xy_color: [0.31, 0.32]
+  - name: Nightlight
+    entities:
+      light.bathroom:
+        state: on
+        brightness: 20
+        rgb_color: [247, 0, 12]
+
+###  Scripts  ###
+script:
+  # Sleep
+  sleep:
+    sequence:
+     # Turn off all lights
+     - execute_service: light.turn_off
+       service_data:
+         entity_id: group.all_lights
+     # Turn off all media (there should be a group.all_media_players)
+     - execute_service: media_player.turn_off
+       service_data:
+         entity_id: media_player.amazon_fire_tv
+     - execute_service: media_player.turn_off
+       service_data:
+         entity_id: media_player.chromecast
+     - execute_service: media_player.turn_off
+       service_data:
+         entity_id: media_player.mpd
+     # Cancel the bedroom light motion timer so it doesn't turn off explicitly-set lighting
+     - execute_service: script.turn_off
+       service_data:
+         entity_id: script.bedroom_timer
+  # TV time
+  tv_time:
+    sequence:
+      - execute_service: light.turn_off
+        service_data:
+          entity_id: light.living_room__hall
+      - execute_service: media_player.media_pause
+        service_data:
+          entity_id: media_player.mpd
+      - execute_service: switch.turn_off
+        service_data:
+          entity_id: group.computer
+  # Craft Room timed lights
+  craft_room_timed_light:
+    sequence:
+      - execute_service: script.turn_off
+        service_data:
+           entity_id: script.craft_room_timer
+      - execute_service: light.turn_on
+        service_data:
+          entity_id: light.craft_room
+      - execute_service: script.turn_on
+        service_data:
+          entity_id: script.craft_room_timer
+  craft_room_timer:
+    sequence:
+      - delay:
+          minutes: 5
+      - execute_service: light.turn_off
+        service_data:
+          entity_id: light.craft_room
+  # Bedroom timed lights
+  bedroom_timed_light:
+    sequence:
+      - execute_service: script.turn_off
+        service_data:
+           entity_id: script.bedroom_timer
+      - execute_service: scene.turn_on
+        service_data:
+          entity_id: scene.bright_bedroom
+      - execute_service: script.turn_on
+        service_data:
+          entity_id: script.bedroom_timer
+  bedroom_timer:
+    sequence:
+      - delay:
+          minutes: 5
+      - execute_service: light.turn_off
+        service_data:
+          entity_id: light.bedroom
+  # Nightlight timed lights
+  nightlight_timed_light:
+    sequence:
+      - execute_service: script.turn_off
+        service_data:
+           entity_id: script.nightlight_timer
+      - execute_service: scene.turn_on
+        service_data:
+          entity_id: scene.nightlight
+      - execute_service: script.turn_on
+        service_data:
+          entity_id: script.nightlight_timer
+  nightlight_timer:
+    sequence:
+      - delay:
+          minutes: 2
+      - execute_service: light.turn_off
+        service_data:
+          entity_id: light.bathroom
+  # Living Room timed lights
+  living_room_timed_light:
+    sequence:
+      - execute_service: script.turn_off
+        service_data:
+           entity_id: script.living_room_timer
+      - execute_service: light.turn_on
+        service_data:
+          entity_id: light.living_room__hall
+      - execute_service: script.turn_on
+        service_data:
+          entity_id: script.living_room_timer
+  living_room_timer:
+    sequence:
+      - delay:
+          minutes: 5
+      - execute_service: light.turn_off
+        service_data:
+          entity_id: light.living_room__hall
+
+###  Automation  ###
+automation:
+# Going to bed, and waking up
+- alias: Sleeping
+  trigger:
+    platform: state
+    entity_id: switch.sleeping
+    state: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.sleep
+- alias: Wake Up
+  trigger:
+    platform: state
+    entity_id: switch.sleeping
+    state: 'off'
+  action:
+   service: scene.turn_on
+   entity_id: scene.bright_bedroom
+# Lighting general
+- alias: Turn on light when sun sets
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-01:00:00"
+  condition:
+    platform: state
+    entity_id: group.all_devices
+    state: home
+  action:
+    service: light.turn_on
+- alias: Turn off lights when everyone leaves the house
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    state: 'not_home'
+  action:
+    service: light.turn_off
+    entity_id: group.all_lights
+# TV usage
+- alias: TV is playing
+  trigger:
+    platform: state
+    entity_id: media_player.amazon_fire_tv
+    state: 'playing'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.tv_time
+- alias: TV paused
+  trigger:
+    platform: state
+    entity_id: media_player.amazon_fire_tv
+    state: 'paused'
+  action:
+    service: light.turn_on
+    entity_id: light.living_room__hall
+# Motion
+- alias: Craft Room Motion
+  trigger:
+    platform: state
+    entity_id: sensor.craft_room_motion
+    state: 'yes'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.craft_room_timed_light
+- alias: Bedroom Motion
+  trigger:
+    platform: state
+    entity_id: sensor.bedroom_motion
+    state: 'yes'
+  condition:
+    platform: state
+    entity_id: switch.sleeping
+    state: 'off'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.bedroom_timed_light
+- alias: Nightlight
+  trigger:
+    platform: state
+    entity_id: sensor.bedroom_motion
+    state: 'yes'
+  condition:
+    platform: state
+    entity_id: switch.sleeping
+    state: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.nightlight_timed_light
+- alias: Living Room Motion
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_motion
+    state: 'yes'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.living_room_timed_light
+
+###  Sensors  ###
+
+# Weather
+sensor:
+  platform: forecast
+  api_key: <redacted>
+  monitored_conditions:
+    - summary
+    - temperature
+    - humidity
+# Craft room (device 1)
+sensor 2:
+  platform: mqtt
+  name: "Craft Room Temperature"
+  state_topic: "sensor/1/temperature"
+  qos: 0
+  unit_of_measurement: "°F"
+sensor 3:
+  platform: mqtt
+  name: "Craft Room Humidity"
+  state_topic: "sensor/1/humidity"
+  qos: 0
+  unit_of_measurement: "%"
+sensor 4:
+  platform: mqtt
+  name: "Craft Room Motion"
+  state_topic: "sensor/1/motion"
+  qos: 0
+# Living room (device 2)
+sensor 5:
+  platform: mqtt
+  name: "Living Room Temperature"
+  state_topic: "sensor/2/temperature"
+  qos: 0
+  unit_of_measurement: "°F"
+sensor 6:
+  platform: mqtt
+  name: "Living Room Humidity"
+  state_topic: "sensor/2/humidity"
+  qos: 0
+  unit_of_measurement: "%"
+sensor 7:
+  platform: mqtt
+  name: "Living Room Motion"
+  state_topic: "sensor/2/motion"
+  qos: 0
+# Bedroom (device 3)
+sensor 8:
+  platform: mqtt
+  name: "Bedroom Temperature"
+  state_topic: "sensor/3/temperature"
+  qos: 0
+  unit_of_measurement: "°F"
+sensor 9:
+  platform: mqtt
+  name: "Bedroom Humidity"
+  state_topic: "sensor/3/humidity"
+  qos: 0
+  unit_of_measurement: "%"
+sensor 10:
+  platform: mqtt
+  name: "Bedroom Motion"
+  state_topic: "sensor/3/motion"
+  qos: 0
+
+###  Lights  ###
+light:
+  platform: limitlessled
+  host: 192.168.1.10
+  group_1_name: Bedroom
+  group_2_name: Craft Room
+  group_2_type: white
+  group_3_name: Bathroom
+  group_4_name: Living Room & Hall
+
+###  MQTT  ###
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+  client_id: 6025
+  keepalive: 60
+
+###  HTTP  ###
+http:
+  api_password: <redacted>
+  development: 0
+
+###  Device tracker  ###
+device_tracker:
+  platform: owntracks
+
+###  Sun  ###
+sun:
+
+###  Logbook  ###
+logbook:
+
+###  History  ###
+history:
+
+###  Frontend  ###
+frontend:
