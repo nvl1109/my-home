@@ -8,50 +8,57 @@ homeassistant:
   customize:
     # Computer
     switch.monitors:
-      icon: hardware:desktop-windows
+     icon: mdi:monitor
     switch.sound:
-      icon: av:volume-up
+      icon: mdi:volume-high
     # Craft Room
     sensor.craft_room_humidity:
-      icon: invert-colors
+      icon: mdi:water-percent
       friendly_name: Humidity
     sensor.craft_room_temperature:
       icon: mdi:thermometer
       friendly_name: Temperature
     sensor.craft_room_motion:
-      icon: maps:directions-walk
+      icon: mdi:walk
       friendly_name: Motion
     light.craft_room:
       friendly_name: Light
     # Living Room
     sensor.living_room_humidity:
-      icon: invert-colors
+      icon: mdi:water-percent
       friendly_name: Humidity
     sensor.living_room_temperature:
       icon: mdi:thermometer
       friendly_name: Temperature
     sensor.living_room_motion:
-      icon: maps:directions-walk
+      icon: mdi:walk
       friendly_name: Motion
     light.living_room__hall:
       friendly_name: Light
     # Bedroom
     sensor.bedroom_humidity:
-      icon: invert-colors
+      icon: mdi:water-percent
       friendly_name: Humidity
     sensor.bedroom_temperature:
       icon: mdi:thermometer
       friendly_name: Temperature
     sensor.bedroom_motion:
-      icon: maps:directions-walk
+      icon: mdi:walk
       friendly_name: Motion
     light.bedroom:
       friendly_name: Light
+    # Bathroom
+    light.bathroom:
+      friendly_name: Bathroom
+    # Kitchen
+    switch.kitchen_light:
+      friendly_name: Light
+      icon: mdi:lightbulb
     # Conditions
     sun.sun:
       icon: mdi:weather-sunny
     sensor.weather_humidity:
-      icon: invert-colors
+      icon: mdi:water-percent
       friendly_name: Humidity
     sensor.weather_temperature:
       icon: mdi:thermometer
@@ -91,17 +98,19 @@ homeassistant:
     scene.lights_off:
       icon: mdi:lightbulb-outline
     scene.romantic:
-      icon: favorite
+      icon: mdi:heart
     scene.disco:
       icon: mdi:image-filter-tilt-shift
     # Media players
     media_player.mpd:
-      icon: image:music-note
+      icon: mdi:music-note
     media_player.amazon_fire_tv:
       icon: mdi:amazon
-    # People
+    #  Switches
     switch.sleeping:
       icon: mdi:sleep
+    switch.christmas_lights:
+      icon: mdi:pine-tree
 
 ###  Media Players  ###
 media_player:
@@ -114,18 +123,20 @@ media_player 2:
 media_player 3:
   platform: cast
   host: 192.168.1.13
+  
 
 ###  Zones  ###
 zone:
   name: Home
   latitude: <redacted>
   longitude: <redacted>
-  radius: 100
+  radius: 20
   icon: social:people
 
 ###  Groups  ###
 group:
   People:
+    - device_tracker.<redacted>
     - device_tracker.<redacted>
     - switch.sleeping
   Outdoors:
@@ -146,6 +157,7 @@ group:
     - sensor.living_room_humidity
     - sensor.living_room_motion
     - light.living_room__hall
+    - switch.christmas_lights
   Craft Room:
     - sensor.craft_room_temperature
     - sensor.craft_room_humidity
@@ -156,8 +168,9 @@ group:
     - sensor.bedroom_humidity
     - sensor.bedroom_motion
     - light.bedroom
-  Bathroom:
     - light.bathroom
+  Kitchen:
+    - switch.kitchen_light
 
 ###  Switches  ###
 switch:
@@ -180,22 +193,37 @@ switch 2:
   payload_on: "yes"
   payload_off: "no"
   optimistic: false
+switch 3:
+  platform: mqtt
+  name: "Kitchen Light"
+  state_topic: "switch/4/state"
+  command_topic: "switch/4/toggle"
+  qos: 0
+  payload_on: "1"
+  payload_off: "0"
+  optimistic: false
+switch 4:
+  platform: orvibo
+  host: 192.168.1.12
+  name: Christmas Lights
 
 ###  Scenes  ###
 scene:
   - name: Romantic
-    fuzzy_match: 0.2
     entities:
       light.bedroom:
         state: on
         brightness: 150
-        xy_color: [0.37, 0.24]
+        rgb_color: [128, 0, 128]
       light.craft_room: off
-      light.bathroom: off
+      light.bathroom:
+        state: on
+        brightness: 150
+        rgb_color: [128, 0, 128]
       light.living_room__hall:
         state: on
         brightness: 150
-        xy_color: [0.37, 0.24]
+        rgb_color: [128, 0, 128]
   - name: Disco
     entities:
       light.living_room__hall:
@@ -211,45 +239,47 @@ scene:
         effect: colorloop
         brightness: 255
   - name: Lights On
-    fuzzy_match: 0.2
     entities:
       light.craft_room:
         state: on
       light.living_room__hall:
         state: on
         brightness: 255
-        xy_color: [0.31, 0.32]
+        rgb_color: [255, 255, 255]
+        effect: fade
       light.bedroom:
         state: on
         brightness: 255
-        xy_color: [0.31, 0.32]
+        rgb_color: [255, 255, 255]
       light.bathroom:
         state: on
         brightness: 255
-        xy_color: [0.31, 0.32]
+        rgb_color: [255, 255, 255]
   - name: Lights Off
     entities:
       light.bedroom: off
-      light.living_room__hall: off
-      light.craft_room: off
+      light.living_room__hall:
+        state: off
+        effect: fade
+      light.craft_room:
+        state: off
       light.bathroom: off
   - name: Bright Bedroom
-    fuzzy_match: 0.2
     entities:
       light.bedroom:
         state: on
         brightness: 255
-        xy_color: [0.31, 0.32]
+        rgb_color: [255, 255, 255]
       light.bathroom:
         state: on
         brightness: 255
-        xy_color: [0.31, 0.32]
+        rgb_color: [255, 255, 255]
   - name: Nightlight
     entities:
       light.bathroom:
         state: on
-        brightness: 20
-        rgb_color: [247, 0, 12]
+        brightness: 1
+        rgb_color: [0, 0, 128]
 
 ###  Scripts  ###
 script:
@@ -301,7 +331,7 @@ script:
   craft_room_timer:
     sequence:
       - delay:
-          minutes: 5
+          minutes: 10
       - execute_service: light.turn_off
         service_data:
           entity_id: light.craft_room
@@ -320,10 +350,13 @@ script:
   bedroom_timer:
     sequence:
       - delay:
-          minutes: 5
+          minutes: 10
       - execute_service: light.turn_off
         service_data:
           entity_id: light.bedroom
+      - execute_service: light.turn_off
+        service_data:
+          entity_id: light.bathroom
   # Nightlight timed lights
   nightlight_timed_light:
     sequence:
@@ -358,7 +391,7 @@ script:
   living_room_timer:
     sequence:
       - delay:
-          minutes: 5
+          minutes: 10
       - execute_service: light.turn_off
         service_data:
           entity_id: light.living_room__hall
@@ -529,12 +562,23 @@ sensor 10:
 ###  Lights  ###
 light:
   platform: limitlessled
-  host: 192.168.1.10
-  group_1_name: Bedroom
-  group_2_name: Craft Room
-  group_2_type: white
-  group_3_name: Bathroom
-  group_4_name: Living Room & Hall
+  bridges:
+  - host: 192.168.1.10
+    version: 5
+    port: 8899
+    groups:
+    - number: 1
+      type: rgbw
+      name: Bedroom
+    - number: 2
+      type: white
+      name: Craft Room
+    - number: 3
+      type: rgbw
+      name: Bathroom
+    - number: 4
+      type: rgbw
+      name: Living Room & Hall
 
 ###  MQTT  ###
 mqtt:
@@ -551,6 +595,21 @@ http:
 ###  Device tracker  ###
 device_tracker:
   platform: owntracks
+device_tracker 2:
+  platform: actiontec
+  host: 192.168.1.1
+  username: admin
+  password: <redacted>
+  track_new_devices: no
+
+### Logger ###
+logger:
+  logs:
+    requests.packages.urllib3.connectionpool: warn
+    homeassistant.components.device_tracker.actiontec: warn
+    homeassistant.components.media_player: warn
+    homeassistant.components.switch: warn
+    homeassistant.components.sensor: warn
 
 ###  Sun  ###
 sun:
