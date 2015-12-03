@@ -1,0 +1,7 @@
+- platform: mpd
+  server: localhost
+  port: 6600
+- platform: firetv
+  host: localhost:5556
+- platform: cast
+  host: 192.168.1.13

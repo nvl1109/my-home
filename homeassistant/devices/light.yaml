@@ -1,0 +1,26 @@
+- platform: limitlessled
+  bridges:
+  - host: 192.168.1.10
+    version: 5
+    port: 8899
+    groups:
+    - number: 1
+      type: rgbw
+      name: Bedroom
+    - number: 2
+      type: white
+      name: Craft Room
+    - number: 3
+      type: rgbw
+      name: Bathroom
+    - number: 4
+      type: rgbw
+      name: Living Room & Hall
+- platform: mqtt
+  name: "Kitchen"
+  state_topic: "switch/4/state"
+  command_topic: "switch/4/toggle"
+  qos: 0
+  payload_on: "1"
+  payload_off: "0"
+  optimistic: false

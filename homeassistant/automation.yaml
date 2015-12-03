@@ -1,0 +1,5 @@
+- !include automation/sleep.yaml
+- !include automation/wake.yaml
+- !include automation/sunset.yaml
+- !include automation/away.yaml
+- !include automation/home.yaml

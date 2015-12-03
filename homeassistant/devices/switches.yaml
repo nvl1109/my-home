@@ -1,0 +1,24 @@
+- platform: command_switch
+  switches:
+    sound:
+      oncmd: /home/<redacted>/windows.sh 192.168.1.2:8888 '<redacted>' sound_toggle
+      offcmd: /home/<redacted>/windows.sh 192.168.1.2:8888 '<redacted>' sound_toggle
+      initial: 'on'
+    monitors:
+      oncmd: /home/<redacted>/windows.sh 192.168.1.2:8888 '<redacted>' monitors_on
+      offcmd: /home/<redacted>/windows.sh 192.168.1.2:8888 '<redacted>' monitors_off
+      initial: 'on'
+- platform: mqtt
+  name: "Sleeping"
+  state_topic: "nfc/sleeping"
+  command_topic: "nfc/sleeping"
+  qos: 0
+  payload_on: "yes"
+  payload_off: "no"
+  optimistic: false
+- platform: orvibo
+  switches:
+  - host: 192.168.1.12
+    name: Smart Socket 1
+#  - host: 192.168.1.15
+#    name: Smart Socket 2

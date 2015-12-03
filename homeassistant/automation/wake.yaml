@@ -1,0 +1,8 @@
+alias: Wake Up
+trigger:
+  platform: state
+  entity_id: switch.sleeping
+  state: 'off'
+action:
+  service: homeassistant.turn_on
+  entity_id: script.wake

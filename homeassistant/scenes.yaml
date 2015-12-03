@@ -1,0 +1,74 @@
+- name: Romantic
+  entities:
+    light.bedroom:
+      state: on
+      brightness: 150
+      rgb_color: [128, 0, 128]
+    light.bathroom:
+      state: on
+      brightness: 150
+      rgb_color: [128, 0, 128]
+    light.living_room__hall:
+      state: on
+      brightness: 150
+      rgb_color: [128, 0, 128]
+    light.craft_room: off
+    light.kitchen: off
+- name: Disco
+  entities:
+    light.living_room__hall:
+      state: on
+      effect: colorloop
+      brightness: 255
+    light.bedroom:
+      state: on
+      effect: colorloop
+      brightness: 255
+    light.bathroom:
+      state: on
+      effect: colorloop
+      brightness: 255
+- name: Lights On
+  entities:
+    light.craft_room:
+      state: on
+    light.living_room__hall:
+      state: on
+      brightness: 255
+      rgb_color: [255, 255, 255]
+      effect: fade
+    light.bedroom:
+      state: on
+      brightness: 255
+      rgb_color: [255, 255, 255]
+    light.bathroom:
+      state: on
+      brightness: 255
+      rgb_color: [255, 255, 255]
+    light.kitchen:
+      state: on
+- name: Lights Off
+  entities:
+    light.bedroom: off
+    light.living_room__hall: off
+    light.bathroom: off
+    light.craft_room: off
+    light.kitchen: off
+- name: Bright Bedroom
+  entities:
+    light.bedroom:
+      state: on
+      transition: 30
+      brightness: 255
+      rgb_color: [255, 255, 255]
+    light.bathroom:
+      state: on
+      transition: 30
+      brightness: 255
+      rgb_color: [255, 255, 255]
+- name: Nightlight
+  entities:
+    light.bathroom:
+      state: on
+      brightness: 1
+      rgb_color: [255, 0, 0]

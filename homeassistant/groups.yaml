@@ -1,0 +1,38 @@
+People:
+  - device_tracker.<redacted>
+  - device_tracker.<redacted>
+  - switch.sleeping
+Outdoors:
+  - sensor.weather_summary
+  - sun.sun
+  - sensor.weather_temperature
+  - sensor.weather_humidity
+Scenes:
+  - scene.lights_on
+  - scene.lights_off
+  - scene.romantic
+  - scene.disco
+Computer:
+  - switch.sound
+  - switch.monitors
+Living Room:
+  - sensor.living_room_temperature
+  - sensor.living_room_humidity
+  - sensor.living_room_motion
+  - light.living_room__hall
+Holiday:
+  - switch.smart_socket_1
+  - switch.smart_socket_2
+Craft Room:
+  - sensor.craft_room_temperature
+  - sensor.craft_room_humidity
+  - sensor.craft_room_motion
+  - light.craft_room
+Bedroom:
+  - sensor.bedroom_temperature
+  - sensor.bedroom_humidity
+  - sensor.bedroom_motion
+  - light.bedroom
+  - light.bathroom
+Kitchen:
+  - light.kitchen

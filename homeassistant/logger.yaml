@@ -1,0 +1,6 @@
+logs:
+  requests.packages.urllib3.connectionpool: warn
+  homeassistant.components.device_tracker.actiontec: warn
+  homeassistant.components.media_player: warn
+  homeassistant.components.switch: warn
+  homeassistant.components.sensor: warn

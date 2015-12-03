@@ -1,0 +1,113 @@
+# Computer
+switch.monitors:
+ icon: mdi:monitor
+switch.sound:
+  icon: mdi:volume-high
+# Craft Room
+sensor.craft_room_humidity:
+  icon: mdi:water-percent
+  friendly_name: Humidity
+sensor.craft_room_temperature:
+  icon: mdi:thermometer
+  friendly_name: Temperature
+sensor.craft_room_motion:
+  icon: mdi:walk
+  friendly_name: Motion
+light.craft_room:
+  friendly_name: Craft Lamp
+# Living Room
+sensor.living_room_humidity:
+  icon: mdi:water-percent
+  friendly_name: Humidity
+sensor.living_room_temperature:
+  icon: mdi:thermometer
+  friendly_name: Temperature
+sensor.living_room_motion:
+  icon: mdi:walk
+  friendly_name: Motion
+light.living_room__hall:
+  friendly_name: Couch Lamp
+# Bedroom
+sensor.bedroom_humidity:
+  icon: mdi:water-percent
+  friendly_name: Humidity
+sensor.bedroom_temperature:
+  icon: mdi:thermometer
+  friendly_name: Temperature
+sensor.bedroom_motion:
+  icon: mdi:walk
+  friendly_name: Motion
+light.bedroom:
+  friendly_name: Bedroom Lamp
+# Bathroom
+light.bathroom:
+  friendly_name: Mirror Border
+  icon: mdi:led-on
+# Kitchen
+light.kitchen:
+  friendly_name: Overhead Fluorescent
+# Conditions
+sun.sun:
+  icon: mdi:weather-sunny
+sensor.weather_humidity:
+  icon: mdi:water-percent
+  friendly_name: Humidity
+sensor.weather_temperature:
+  icon: mdi:thermometer
+  friendly_name: Temperature
+sensor.weather_summary:
+  icon: mdi:leaf
+  friendly_name: Conditions
+# Hide scripts
+script.craft_room_timed_light:
+  hidden: true
+script.craft_room_timer:
+  hidden: true
+script.living_room_timed_light:
+  hidden: true
+script.living_room_timer:
+  hidden: true
+script.bedroom_timed_light:
+  hidden: true
+script.bedroom_timer:
+  hidden: true
+script.tv_time:
+  hidden: true
+script.nightlight_timed_light:
+  hidden: true
+script.nightlight_timer:
+  hidden: true
+script.sleep:
+  hidden: true
+script.wake:
+  hidden: true
+script.main_lights:
+  hidden: true
+# Hide scenes
+scene.bright_bedroom:
+  hidden: true
+scene.nightlight:
+  hidden: true
+# Scenes
+scene.lights_on:
+  icon: mdi:lightbulb
+scene.lights_off:
+  icon: mdi:lightbulb-outline
+scene.romantic:
+  icon: mdi:heart
+scene.disco:
+  icon: mdi:image-filter-tilt-shift
+# Media players
+media_player.mpd:
+  icon: mdi:music-note
+media_player.amazon_fire_tv:
+  icon: mdi:amazon
+#  Switches
+switch.sleeping:
+  icon: mdi:sleep
+switch.smart_socket_1:
+  friendly_name: Colored Light String
+  icon: mdi:led-on
+switch.smart_socket_2:
+  friendly_name: Christmas Tree Lights
+  icon: mdi:pine-tree

@@ -1,0 +1,51 @@
+- platform: forecast
+  api_key: <redacted>
+  monitored_conditions:
+    - summary
+    - temperature
+    - humidity
+# -- Craft room (device 1)
+- platform: mqtt
+  name: "Craft Room Temperature"
+  state_topic: "sensor/1/temperature"
+  qos: 0
+  unit_of_measurement: "°F"
+- platform: mqtt
+  name: "Craft Room Humidity"
+  state_topic: "sensor/1/humidity"
+  qos: 0
+  unit_of_measurement: "%"
+- platform: mqtt
+  name: "Craft Room Motion"
+  state_topic: "sensor/1/motion"
+  qos: 0
+# -- Living room (device 2)
+- platform: mqtt
+  name: "Living Room Temperature"
+  state_topic: "sensor/2/temperature"
+  qos: 0
+  unit_of_measurement: "°F"
+- platform: mqtt
+  name: "Living Room Humidity"
+  state_topic: "sensor/2/humidity"
+  qos: 0
+  unit_of_measurement: "%"
+- platform: mqtt
+  name: "Living Room Motion"
+  state_topic: "sensor/2/motion"
+  qos: 0
+# -- Bedroom (device 3)
+- platform: mqtt
+  name: "Bedroom Temperature"
+  state_topic: "sensor/3/temperature"
+  qos: 0
+  unit_of_measurement: "°F"
+- platform: mqtt
+  name: "Bedroom Humidity"
+  state_topic: "sensor/3/humidity"
+  qos: 0
+  unit_of_measurement: "%"
+- platform: mqtt
+  name: "Bedroom Motion"
+  state_topic: "sensor/3/motion"
+  qos: 0

@@ -1,0 +1,3 @@
+sleep: !include scripts/sleep.yaml
+wake: !include scripts/wake.yaml
+main_lights: !include scripts/main_lights.yaml

@@ -1,0 +1,9 @@
+sequence:
+- execute_service: scene.turn_on
+  service_data:
+    entity_id: scene.bright_bedroom
+- delay:
+    seconds: 30
+- execute_service: light.turn_on
+  service_data:
+    entity_id: light.kitchen

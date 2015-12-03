@@ -1,0 +1,7 @@
+sequence:
+- execute_service: homeassistant.turn_on
+  service_data:
+    entity_id:
+      - light.living_room__hall
+      - light.bedroom
+      - light.kitchen
