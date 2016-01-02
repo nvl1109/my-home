@@ -59,23 +59,29 @@ sensor.weather_summary:
   icon: mdi:leaf
   friendly_name: Conditions
 # Hide scripts
-script.craft_room_timed_light:
+script.craft_room_start_timer:
+  hidden: true
+script.craft_room_restart_timer:
   hidden: true
 script.craft_room_timer:
   hidden: true
-script.living_room_timed_light:
+script.living_room_start_timer:
+  hidden: true
+script.living_room_restart_timer:
   hidden: true
 script.living_room_timer:
   hidden: true
-script.bedroom_timed_light:
+script.bathroom_start_timer:
+  hidden: true
+script.bathroom_restart_timer:
+  hidden: true
+script.bathroom_timer:
+  hidden: true
+script.bedroom_start_timer:
+  hidden: true
+script.bedroom_restart_timer:
   hidden: true
 script.bedroom_timer:
-  hidden: true
-script.tv_time:
-  hidden: true
-script.nightlight_timed_light:
-  hidden: true
-script.nightlight_timer:
   hidden: true
 script.sleep:
   hidden: true
@@ -88,6 +94,8 @@ scene.bright_bedroom:
   hidden: true
 scene.nightlight:
   hidden: true
+scene.holiday:
+  hidden: true
 # Scenes
 scene.lights_on:
   icon: mdi:lightbulb
@@ -98,7 +106,11 @@ scene.romantic:
 scene.disco:
   icon: mdi:image-filter-tilt-shift
 # Media players
-media_player.mpd:
+media_player.multiroom_audio:
+  icon: mdi:music-box-outline
+media_player.living_room:
+  icon: mdi:music-note
+media_player.bedroom:
   icon: mdi:music-note
 media_player.amazon_fire_tv:
   icon: mdi:amazon

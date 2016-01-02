@@ -1,3 +1,13 @@
+- name: Holiday
+  entities:
+    light.living_room__hall:
+      state: on
+      brightness: 30
+      rgb_color: [0, 0, 255]
+    switch.smart_socket_1:
+      state: on
+    switch.smart_socket_2:
+      state: on
 - name: Romantic
   entities:
     light.bedroom:

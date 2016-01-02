@@ -20,7 +20,9 @@ Living Room:
   - sensor.living_room_humidity
   - sensor.living_room_motion
   - light.living_room__hall
+  - camera.camera
 Holiday:
+  - script.holiday
   - switch.smart_socket_1
   - switch.smart_socket_2
 Craft Room:
@@ -34,5 +36,12 @@ Bedroom:
   - sensor.bedroom_motion
   - light.bedroom
   - light.bathroom
-Kitchen:
-  - light.kitchen
+#Kitchen:
+#  - light.kitchen
+Twitch:
+  - sensor.fopt_membrillo
+  - sensor.vooblyofficial
+  - sensor.voobly_stream
+  - sensor.t90official
+Home Assistant:
+  - switch.detect_motion

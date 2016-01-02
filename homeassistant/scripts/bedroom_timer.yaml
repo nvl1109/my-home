@@ -1,0 +1,8 @@
+sequence:
+- delay:
+    minutes: 10
+- execute_service: light.turn_off
+  service_data:
+    entity_id:
+    - light.bedroom
+    - light.bathroom

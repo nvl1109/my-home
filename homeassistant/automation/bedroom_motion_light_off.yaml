@@ -1,0 +1,18 @@
+alias: Bedroom Motion - Lights Off
+trigger:
+  platform: state
+  entity_id: sensor.bedroom_motion
+  state: 'yes'
+condition:
+  - platform: state
+    entity_id: switch.detect_motion
+    state: 'on'
+  - platform: state
+    entity_id: light.bedroom
+    state: 'off'
+  - platform: state
+    entity_id: switch.sleeping
+    state: 'off'
+action:
+  service: homeassistant.turn_on
+  entity_id: script.bedroom_start_timer

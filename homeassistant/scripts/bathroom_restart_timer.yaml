@@ -1,0 +1,7 @@
+sequence:
+- execute_service: script.turn_off
+  service_data:
+    entity_id: script.bathroom_timer
+- execute_service: script.turn_on
+  service_data:
+    entity_id: script.bathroom_timer

@@ -16,9 +16,15 @@
   payload_on: "yes"
   payload_off: "no"
   optimistic: false
+- platform: mqtt
+  name: "Detect Motion"
+  state_topic: "nfc/detect_motion"
+  command_topic: "nfc/detect_motion"
+  payload_on: "yes"
+  payload_off: "no"
 - platform: orvibo
   switches:
   - host: 192.168.1.12
     name: Smart Socket 1
-#  - host: 192.168.1.15
-#    name: Smart Socket 2
+  - host: 192.168.1.15
+    name: Smart Socket 2

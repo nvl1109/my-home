@@ -1,6 +1,13 @@
 - platform: mpd
-  server: localhost
-  port: 6600
+  server: automation
+  port: 6601
+  location: Multi-Room Audio
+- platform: mpd
+  server: raspberrypi
+  location: Bedroom
+- platform: mpd
+  server: automation
+  location: Living Room
 - platform: firetv
   host: localhost:5556
 - platform: cast

@@ -1,5 +1,13 @@
 - !include automation/sleep.yaml
 - !include automation/wake.yaml
 - !include automation/sunset.yaml
-- !include automation/away.yaml
+#- !include automation/away.yaml
 - !include automation/home.yaml
+- !include automation/bedroom_motion_light_on.yaml
+- !include automation/bedroom_motion_light_off.yaml
+#- !include automation/bathroom_motion_light_on.yaml
+#- !include automation/bathroom_motion_light_off.yaml
+- !include automation/craft_room_motion_light_on.yaml
+- !include automation/craft_room_motion_light_off.yaml
+- !include automation/living_room_motion_light_on.yaml
+- !include automation/living_room_motion_light_off.yaml

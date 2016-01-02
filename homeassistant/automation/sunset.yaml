@@ -2,8 +2,8 @@ alias: Turn on light when sun sets
 trigger:
   platform: numeric_state
   entity_id: sun.sun
-  attribute: elevation
-  below: -2
+  value_template: '{{ state.attributes.elevation }}'
+  below: 5
 condition:
   platform: state
   entity_id: group.all_devices

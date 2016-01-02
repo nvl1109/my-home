@@ -1,0 +1,18 @@
+alias: Bedroom Motion - Lights Already On
+trigger:
+  platform: state
+  entity_id: sensor.bedroom_motion
+  state: 'yes'
+condition:
+  - platform: state
+    entity_id: switch.detect_motion
+    state: 'on'
+  - platform: state
+    entity_id: light.bedroom
+    state: 'on'
+  - platform: state
+    entity_id: switch.sleeping
+    state: 'off'
+action:
+  service: homeassistant.turn_on
+  entity_id: script.bedroom_restart_timer
