@@ -6,7 +6,7 @@
 
 ###  Global configuration  ###
 homeassistant:
-  name: <redacted>
+  name: Home
   latitude: <redacted>
   longitude: <redacted>
   temperature_unit: F
@@ -60,6 +60,9 @@ script: !include scripts.yaml
 
 ### Automation ###
 automation: !include automation.yaml
+
+### Notification ###
+notify: !include notify.yaml
 
 ####################################################
 #                                                  #

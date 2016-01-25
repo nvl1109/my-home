@@ -1,7 +1,25 @@
+Quick:
+  view: yes
+  entities:
+    - light.living_room__hall
+    - light.bedroom
+    - light.craft_room
+    - switch.sleeping
+Rooms:
+  view: yes
+  entities:
+    - group.living_room
+    - group.craft_room
+    - group.bedroom
+Config:
+  view: yes
+  entities:
+    - group.home_assistant
 People:
   - device_tracker.<redacted>
   - device_tracker.<redacted>
   - switch.sleeping
+  - switch.vacation
 Outdoors:
   - sensor.weather_summary
   - sun.sun
@@ -21,10 +39,10 @@ Living Room:
   - sensor.living_room_motion
   - light.living_room__hall
   - camera.camera
-Holiday:
-  - script.holiday
-  - switch.smart_socket_1
-  - switch.smart_socket_2
+#Holiday:
+#  - script.holiday
+#  - switch.smart_socket_1
+#  - switch.smart_socket_2
 Craft Room:
   - sensor.craft_room_temperature
   - sensor.craft_room_humidity
@@ -45,3 +63,5 @@ Twitch:
   - sensor.t90official
 Home Assistant:
   - switch.detect_motion
+  - switch.presence
+  - switch.nightlights

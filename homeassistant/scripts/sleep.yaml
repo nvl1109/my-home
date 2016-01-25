@@ -17,5 +17,5 @@ sequence:
 - execute_service: switch.turn_off
   service_data:
     entity_id:
-    - switch.sound
-    - switch.monitors
+#    - switch.sound
+#    - switch.monitors

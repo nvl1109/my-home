@@ -2,9 +2,9 @@
   server: automation
   port: 6601
   location: Multi-Room Audio
-- platform: mpd
-  server: raspberrypi
-  location: Bedroom
+#- platform: mpd
+#  server: raspberrypi
+#  location: Bedroom
 - platform: mpd
   server: automation
   location: Living Room
@@ -12,3 +12,5 @@
   host: localhost:5556
 - platform: cast
   host: 192.168.1.13
+- platform: snapcast
+  host: automation

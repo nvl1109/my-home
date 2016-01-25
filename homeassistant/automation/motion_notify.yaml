@@ -1,0 +1,22 @@
+alias: Unexpected motion
+trigger:
+- platform: state
+  entity_id: sensor.living_room_motion
+  state: 'yes'
+- platform: state
+  entity_id: sensor.bedroom_motion
+  state: 'yes'
+- platform: state
+  entity_id: sensor.craft_room_motion
+  state: 'yes'
+condition:
+- platform: state
+  entity_id: switch.detect_motion
+  state: 'on'
+- platform: state
+  entity_id: group.all_devices
+  state: 'not_home'
+action:
+  service: notify.notify
+  data:
+    message: Unexpected motion detected

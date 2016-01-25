@@ -49,9 +49,9 @@
   name: "Bedroom Motion"
   state_topic: "sensor/3/motion"
   qos: 0
-- platform: twitch
-  channels:
-  - fopt_membrillo
-  - vooblyofficial
-  - voobly_stream
-  - t90official
+#- platform: twitch
+#  channels:
+#  - fopt_membrillo
+#  - vooblyofficial
+#  - voobly_stream
+#  - t90official

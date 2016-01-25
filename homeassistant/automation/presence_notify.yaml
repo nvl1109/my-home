@@ -1,0 +1,16 @@
+alias: Someone is home
+trigger:
+- platform: state
+  entity_id: group.all_devices
+  state: 'home'
+condition:
+- platform: state
+  entity_id: switch.presence
+  state: 'on'
+- platform: state
+  entity_id: device_tracker.<redacted>
+  state: 'not_home'
+action:
+  service: notify.notify
+  data:
+    message: <redacted> is home

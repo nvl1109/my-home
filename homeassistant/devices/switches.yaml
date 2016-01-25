@@ -22,6 +22,24 @@
   command_topic: "nfc/detect_motion"
   payload_on: "yes"
   payload_off: "no"
+- platform: mqtt
+  name: "Presence"
+  state_topic: "nfc/presence"
+  command_topic: "nfc/presence"
+  payload_on: "yes"
+  payload_off: "no"
+- platform: mqtt
+  name: "Nightlights"
+  state_topic: "nfc/nightlights"
+  command_topic: "nfc/nightlights"
+  payload_on: "yes"
+  payload_off: "no"
+- platform: mqtt
+  name: "Vacation"
+  state_topic: "nfc/vacation"
+  command_topic: "nfc/vacation"
+  payload_on: "yes"
+  payload_off: "no"
 - platform: orvibo
   switches:
   - host: 192.168.1.12

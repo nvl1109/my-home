@@ -89,6 +89,8 @@ script.wake:
   hidden: true
 script.main_lights:
   hidden: true
+script.holiday:
+  hidden: true
 # Hide scenes
 scene.bright_bedroom:
   hidden: true
@@ -123,3 +125,13 @@ switch.smart_socket_1:
 switch.smart_socket_2:
   friendly_name: Christmas Tree Lights
   icon: mdi:pine-tree
+switch.vacation:
+  icon: mdi:airplane
+switch.presence:
+  icon: mdi:account-multiple
+  friendly_name: Detect Presence
+switch.detect_motion:
+  icon: mdi:walk
+switch.nightlights:
+  icon: mdi:weather-night
+  friendly_name: Nightlight
