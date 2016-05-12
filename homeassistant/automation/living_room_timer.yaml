@@ -1,0 +1,25 @@
+alias: Living Room Timer
+trigger:
+  platform: state
+  entity_id: sensor.living_room_motion
+  to: 'no'
+  for:
+    minutes: !env_var MOTION_TIMEOUT_MINS
+condition:
+- condition: state
+  entity_id: switch.detect_motion
+  state: 'on'
+- condition: state
+  entity_id: light.living_room__hall
+  state: 'on'
+- condition: state
+  entity_id: switch.sleeping
+  state: 'off'
+- condition: numeric_state
+  entity_id: sun.sun
+  value_template: '{{ state.attributes.elevation }}'
+  below: !env_var SUNSET_ELEVATION
+action:
+  service: homeassistant.turn_off
+  entity_id: light.living_room__hall
+

@@ -1,0 +1,27 @@
+alias: Streaming
+trigger:
+- platform: state
+  entity_id: sensor.fopt_membrillo
+  state: 'streaming'
+- platform: state
+  entity_id: sensor.vooblyofficial
+  state: 'streaming'
+- platform: state
+  entity_id: sensor.voobly_stream
+  state: 'streaming'
+- platform: state
+  entity_id: sensor.t90official
+  state: 'streaming'
+condition:
+- condition: state
+  entity_id: group.all_devices
+  state: 'home'
+action:
+  service: notify.notify
+  data:
+    message: >
+      {%- for state in states.sensor %}
+        {%- if state.state == 'streaming' %}
+          {{state.name}} is streaming
+        {%- endif %}
+      {%- endfor %}

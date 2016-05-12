@@ -1,0 +1,9 @@
+trigger:
+  platform: numeric_state
+  entity_id: device_tracker.me_phone
+  value_template: '{{ state.attributes.battery }}'
+  below: 30
+action:
+  service: notify.notify
+  data:
+    message: 'My battery is low: {{ states.device_tracker.me_phone.attributes.battery }}%'

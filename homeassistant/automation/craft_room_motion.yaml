@@ -1,0 +1,22 @@
+alias: Craft Room Motion
+trigger:
+  platform: state
+  entity_id: sensor.craft_room_motion
+  state: 'yes'
+condition:
+- condition: state
+  entity_id: switch.detect_motion
+  state: 'on'
+- condition: state
+  entity_id: light.craft_room
+  state: 'off'
+- condition: state
+  entity_id: switch.sleeping
+  state: 'off'
+- condition: numeric_state
+  entity_id: sun.sun
+  value_template: '{{ state.attributes.elevation }}'
+  below: !env_var SUNSET_ELEVATION
+action:
+  service: homeassistant.turn_on
+  entity_id: light.craft_room
