@@ -1,12 +1,12 @@
 sequence:
-- execute_service: script.turn_off
-  service_data:
+- service: script.turn_off
+  data:
     entity_id: script.bathroom_timer
-- execute_service: scene.turn_on
-  service_data:
+- service: scene.turn_on
+  data:
     entity_id: scene.bright_bedroom
 - delay:
     seconds: 45
-- execute_service: light.turn_on
-  service_data:
+- service: light.turn_on
+  data:
     entity_id: light.kitchen

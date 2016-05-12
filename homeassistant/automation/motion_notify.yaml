@@ -10,13 +10,26 @@ trigger:
   entity_id: sensor.craft_room_motion
   state: 'yes'
 condition:
-- platform: state
+- condition: state
   entity_id: switch.detect_motion
   state: 'on'
-- platform: state
+- condition: state
+  entity_id: switch.alert_motion
+  state: 'on'
+- condition: state
   entity_id: group.all_devices
   state: 'not_home'
 action:
   service: notify.notify
   data:
-    message: Unexpected motion detected
+    message: >
+      Unexpected motion detected in
+      {% if states.sensor.craft_room_motion.state == 'yes' -%}
+        craft room
+      {% endif -%}
+      {% if states.sensor.living_room_motion.state == 'yes' -%}
+        living room
+      {% endif -%}
+      {% if states.sensor.bedroom_motion.state == 'yes' -%}
+        bedroom
+      {% endif -%}

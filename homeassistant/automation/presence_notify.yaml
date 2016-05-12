@@ -4,13 +4,13 @@ trigger:
   entity_id: group.all_devices
   state: 'home'
 condition:
-- platform: state
+- condition: state
   entity_id: switch.presence
   state: 'on'
-- platform: state
-  entity_id: device_tracker.<redacted>
+- condition: state
+  entity_id: device_tracker.her_phone
   state: 'not_home'
 action:
   service: notify.notify
   data:
-    message: <redacted> is home
+    message: Meredith is home

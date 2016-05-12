@@ -30,14 +30,17 @@
       state: on
       effect: colorloop
       brightness: 255
+      transition: 10
     light.bedroom:
       state: on
       effect: colorloop
       brightness: 255
+      transition: 10
     light.bathroom:
       state: on
       effect: colorloop
       brightness: 255
+      transition: 10
 - name: Lights On
   entities:
     light.craft_room:
@@ -46,7 +49,6 @@
       state: on
       brightness: 255
       rgb_color: [255, 255, 255]
-      effect: fade
     light.bedroom:
       state: on
       brightness: 255

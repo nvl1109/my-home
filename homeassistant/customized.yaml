@@ -27,6 +27,8 @@ sensor.living_room_motion:
   friendly_name: Motion
 light.living_room__hall:
   friendly_name: Couch Lamp
+switch.cat_toy:
+  icon: mdi:cat
 # Bedroom
 sensor.bedroom_humidity:
   icon: mdi:water-percent
@@ -107,15 +109,46 @@ scene.romantic:
   icon: mdi:heart
 scene.disco:
   icon: mdi:image-filter-tilt-shift
+
 # Media players
 media_player.multiroom_audio:
   icon: mdi:music-box-outline
+
 media_player.living_room:
+  friendly_name: Living Room Music
   icon: mdi:music-note
 media_player.bedroom:
+  friendly_name: Bedroom Music
   icon: mdi:music-note
+media_player.craft_room:
+  friendly_name: Craft Room Music
+  icon: mdi:music-note
+
+media_player.living_room_client:
+  friendly_name: Living Room Volume
+  icon: mdi:speaker
+media_player.bedroom_client:
+  friendly_name: Bedroom Volume
+  icon: mdi:speaker
+media_player.craft_room_client:
+  friendly_name: Craft Room Volume
+  icon: mdi:speaker
+
+weblink.living_room_music_player:
+  friendly_name: Living Room Player
+  icon: mdi:play-pause
+weblink.craft_room_music_player:
+  friendly_name: Craft Room Player
+  icon: mdi:play-pause
+weblink.bedroom_music_player:
+  friendly_name: Bedroom Player
+  icon: mdi:play-pause
+weblink.multiroom_music_player:
+  icon: mdi:play-pause
+
 media_player.amazon_fire_tv:
   icon: mdi:amazon
+
 #  Switches
 switch.sleeping:
   icon: mdi:sleep
@@ -135,3 +168,24 @@ switch.detect_motion:
 switch.nightlights:
   icon: mdi:weather-night
   friendly_name: Nightlight
+sensor.speedtest_download:
+  icon: mdi:download
+  friendly_name: Download
+sensor.speedtest_upload:
+  icon: mdi:upload
+  friendly_name: Upload
+sensor.speedtest_ping:
+  icon: mdi:timer
+  friendly_name: Ping
+sensor.glances_sensor_cpu_load:
+  friendly_name: CPU Load
+  icon: mdi:memory
+sensor.glances_sensor_disk_use:
+  friendly_name: Disk
+  icon: mdi:server
+sensor.glances_sensor_ram_use:
+  friendly_name: Memory
+  icon: mdi:server
+sensor.glances_sensor_swap_use:
+  friendly_name: Swap
+  icon: mdi:server

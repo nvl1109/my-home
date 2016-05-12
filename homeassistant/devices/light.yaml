@@ -16,11 +16,3 @@
     - number: 4
       type: rgbw
       name: Living Room & Hall
-#- platform: mqtt
-#  name: "Kitchen"
-#  state_topic: "switch/4/state"
-#  command_topic: "switch/4/toggle"
-#  qos: 0
-#  payload_on: "1"
-#  payload_off: "0"
-#  optimistic: false

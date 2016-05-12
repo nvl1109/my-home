@@ -7,19 +7,23 @@
 ###  Global configuration  ###
 homeassistant:
   name: Home
-  latitude: <redacted>
-  longitude: <redacted>
+  latitude: !env_var HOME_LATITUDE
+  longitude: !env_var HOME_LONGITUDE
   temperature_unit: F
-  time_zone: America/New_York
+  time_zone: !env_var HASS_TIMEZONE
   customize: !include customized.yaml
 
 ###  Zones  ###
 zone:
-  name: Home
-  latitude: <redacted>
-  longitude: <redacted>
+- name: Home
+  latitude: !env_var HOME_LATITUDE
+  longitude: !env_var HOME_LONGITUDE
   radius: 20
   icon: social:people
+- name: Work
+  latitude: !env_var WORK_LATITUDE
+  longitude: !env_var WORK_LONGITUDE
+  radius: 100
 
 ###  MQTT  ###
 mqtt:
@@ -30,7 +34,7 @@ mqtt:
 
 ###  HTTP  ###
 http:
-  api_password: <redacted>
+  api_password: !env_var HASS_API_PASSWORD
 
 ####################################################
 #                                                  #
@@ -63,6 +67,9 @@ automation: !include automation.yaml
 
 ### Notification ###
 notify: !include notify.yaml
+
+### Weblinks ###
+weblink: !include weblink.yaml
 
 ####################################################
 #                                                  #

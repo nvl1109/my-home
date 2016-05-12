@@ -1,9 +1,0 @@
-sequence:
-- execute_service: light.turn_on
-  service_data:
-    entity_id: light.bathroom
-    rgb_color: [255, 0, 0]
-    brightness: 10
-- execute_service: script.turn_on
-  service_data:
-    entity_id: script.bathroom_timer

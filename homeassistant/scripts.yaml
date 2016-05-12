@@ -1,16 +1,4 @@
 sleep: !include scripts/sleep.yaml
 wake: !include scripts/wake.yaml
 main_lights: !include scripts/main_lights.yaml
-bedroom_start_timer: !include scripts/bedroom_start_timer.yaml
-bedroom_restart_timer: !include scripts/bedroom_restart_timer.yaml
-bedroom_timer: !include scripts/bedroom_timer.yaml
-bathroom_start_timer: !include scripts/bathroom_start_timer.yaml
-bathroom_restart_timer: !include scripts/bathroom_restart_timer.yaml
-bathroom_timer: !include scripts/bathroom_timer.yaml
-craft_room_start_timer: !include scripts/craft_room_start_timer.yaml
-craft_room_restart_timer: !include scripts/craft_room_restart_timer.yaml
-craft_room_timer: !include scripts/craft_room_timer.yaml
-living_room_start_timer: !include scripts/living_room_start_timer.yaml
-living_room_restart_timer: !include scripts/living_room_restart_timer.yaml
-living_room_timer: !include scripts/living_room_timer.yaml
 holiday: !include scripts/holiday.yaml

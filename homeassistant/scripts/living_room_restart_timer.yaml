@@ -1,7 +1,0 @@
-sequence:
-- execute_service: script.turn_off
-  service_data:
-    entity_id: script.living_room_timer
-- execute_service: script.turn_on
-  service_data:
-    entity_id: script.living_room_timer

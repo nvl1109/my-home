@@ -3,14 +3,14 @@ trigger:
   platform: numeric_state
   entity_id: sun.sun
   value_template: '{{ state.attributes.elevation }}'
-  below: 5
+  below: !env_var SUNSET_ELEVATION
 condition:
-  - platform: state
-    entity_id: group.all_devices
-    state: home
-  - platform: state
-    entity_id: switch.vacation
-    state: 'off'
+- condition: state
+  entity_id: group.all_devices
+  state: home
+- condition: state
+  entity_id: switch.vacation
+  state: 'off'
 action:
   service: homeassistant.turn_on
   entity_id: script.main_lights

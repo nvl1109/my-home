@@ -1,23 +1,67 @@
-Quick:
+default_view:
   view: yes
   entities:
     - light.living_room__hall
     - light.bedroom
     - light.craft_room
     - switch.sleeping
+    - group.multiroom_audio
 Rooms:
   view: yes
   entities:
     - group.living_room
     - group.craft_room
     - group.bedroom
-Config:
+Media:
   view: yes
   entities:
-    - group.home_assistant
+  - media_player.craft_room
+  - media_player.bedroom
+  - media_player.living_room
+  - media_player.craft_room_client
+  - media_player.bedroom_client
+  - media_player.living_room_client
+  - media_player.desktop_client
+  - weblink.craft_room_music_player
+  - weblink.bedroom_music_player
+  - weblink.living_room_music_player
+  - group.multiroom_audio
+  - group.tv
+Multi-room Audio:
+- media_player.multiroom_audio
+- weblink.multiroom_music_player
+TV:
+- media_player.amazon_fire_tv
+- media_player.living_room
+- media_player.living_room_client
+- weblink.living_room_music_player
+Other:
+  view: yes
+  entities:
+  - group.twitch
+  - group.people
+  - group.outdoors
+  - group.scenes
+  - group.computer
+Admin:
+  view: yes
+  entities:
+  - group.home_assistant
+  - group.network
+  - group.server
+Network:
+- sensor.speedtest_upload
+- sensor.speedtest_download
+- sensor.speedtest_ping
+- weblink.router
+Server:
+- sensor.glances_sensor_cpu_load
+- sensor.glances_sensor_disk_use
+- sensor.glances_sensor_ram_use
+- sensor.glances_sensor_swap_use
 People:
-  - device_tracker.<redacted>
-  - device_tracker.<redacted>
+  - device_tracker.me_phone
+  - device_tracker.her_phone
   - switch.sleeping
   - switch.vacation
 Outdoors:
@@ -34,34 +78,48 @@ Computer:
   - switch.sound
   - switch.monitors
 Living Room:
-  - sensor.living_room_temperature
-  - sensor.living_room_humidity
-  - sensor.living_room_motion
-  - light.living_room__hall
-  - camera.camera
+- sensor.living_room_temperature
+- sensor.living_room_humidity
+- sensor.living_room_motion
+- light.living_room__hall
+- switch.cat_toy
+- media_player.amazon_fire_tv
+- media_player.living_room
+- media_player.living_room_client
+- weblink.living_room_music_player
+- camera.camera
 #Holiday:
 #  - script.holiday
 #  - switch.smart_socket_1
 #  - switch.smart_socket_2
 Craft Room:
-  - sensor.craft_room_temperature
-  - sensor.craft_room_humidity
-  - sensor.craft_room_motion
-  - light.craft_room
+- sensor.craft_room_temperature
+- sensor.craft_room_humidity
+- sensor.craft_room_motion
+- light.craft_room
+- media_player.craft_room
+- media_player.craft_room_client
+- weblink.craft_room_music_player
 Bedroom:
-  - sensor.bedroom_temperature
-  - sensor.bedroom_humidity
-  - sensor.bedroom_motion
-  - light.bedroom
-  - light.bathroom
+- sensor.bedroom_temperature
+- sensor.bedroom_humidity
+- sensor.bedroom_motion
+- light.bedroom
+- light.bathroom
+- media_player.bedroom
+- media_player.bedroom_client
+- weblink.bedroom_music_player
 #Kitchen:
 #  - light.kitchen
 Twitch:
-  - sensor.fopt_membrillo
-  - sensor.vooblyofficial
-  - sensor.voobly_stream
-  - sensor.t90official
+- sensor.fopt_membrillo
+- sensor.vooblyofficial
+- sensor.voobly_stream
+- sensor.t90official
+- weblink.twitch
 Home Assistant:
-  - switch.detect_motion
-  - switch.presence
-  - switch.nightlights
+- switch.detect_motion
+- switch.presence
+- switch.nightlights
+- switch.alert_motion
+- switch.twitch

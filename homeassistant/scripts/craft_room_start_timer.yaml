@@ -1,7 +1,0 @@
-sequence:
-- execute_service: light.turn_on
-  service_data:
-    entity_id: light.craft_room
-- execute_service: script.turn_on
-  service_data:
-    entity_id: script.craft_room_timer

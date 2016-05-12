@@ -1,9 +1,9 @@
 sequence:
-- execute_service: media_player.start_fireplace
-  service_data:
+- service: media_player.start_fireplace
+  data:
     entity_id:
-      - media_player.chromecast
-- execute_service: homeassistant.turn_on
-  service_data:
+    - media_player.chromecast
+- service: homeassistant.turn_on
+  data:
     entity_id:
-      - scene.holiday
+    - scene.holiday
