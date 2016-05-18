@@ -1,0 +1,9 @@
+scene.lights_on:
+  icon: mdi:lightbulb
+scene.lights_off:
+  icon: mdi:lightbulb-outline
+scene.romantic:
+  icon: mdi:heart
+scene.disco:
+  icon: mdi:image-filter-tilt-shift
+

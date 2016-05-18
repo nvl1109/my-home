@@ -1,3 +1,10 @@
+#  Various scene definitions. A scene is a set of
+#  states that should be enabled at the same time.
+
+#  The holiday state sets a festive color on the common
+#  area lights, and turns on the smart switches, which
+#  are presumably attached to holiday lights.
+
 - name: Holiday
   entities:
     light.living_room__hall:
@@ -8,6 +15,10 @@
       state: on
     switch.smart_socket_2:
       state: on
+
+#  The romantic state switches the lights to purple
+#  and turns off lights in utilitarian rooms.
+
 - name: Romantic
   entities:
     light.bedroom:
@@ -23,7 +34,10 @@
       brightness: 150
       rgb_color: [128, 0, 128]
     light.craft_room: off
-    light.kitchen: off
+
+#  The disco scene is just for fun - cycle all the
+#  colored lights through all their colors.
+
 - name: Disco
   entities:
     light.living_room__hall:
@@ -41,6 +55,9 @@
       effect: colorloop
       brightness: 255
       transition: 10
+
+#  Turn on all the lights to max white brightness.
+
 - name: Lights On
   entities:
     light.craft_room:
@@ -59,6 +76,9 @@
       rgb_color: [255, 255, 255]
     light.kitchen:
       state: on
+
+#  Turn off all the lights.
+
 - name: Lights Off
   entities:
     light.bedroom: off
@@ -66,18 +86,28 @@
     light.bathroom: off
     light.craft_room: off
     light.kitchen: off
-- name: Bright Bedroom
+
+#  Used in the morning when the alarm goes off.
+#  Fade on the bedroom and bathroom lights for
+#  a gentle but persistent reminder to get up.
+
+- name: Morning Bedroom
   entities:
     light.bedroom:
       state: on
-      transition: 30
+      transition: 45
       brightness: 255
       rgb_color: [255, 255, 255]
     light.bathroom:
       state: on
-      transition: 30
+      transition: 45
       brightness: 255
       rgb_color: [255, 255, 255]
+
+#  Bathroom nightlight. Lowest brightness and red
+#  to not disturb other occupants and maintain
+#  night vision.
+
 - name: Nightlight
   entities:
     light.bathroom:

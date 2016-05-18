@@ -1,2 +1,5 @@
+#  Set up a notification platform so that alerts from
+#  Home Assistant can be received in the browser on a mobile device.
+
 - platform: pushbullet
   api_key: !env_var PUSHBULLET_API_KEY

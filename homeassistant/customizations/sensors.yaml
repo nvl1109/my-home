@@ -1,0 +1,40 @@
+sensor.speedtest_download:
+  icon: mdi:download
+  friendly_name: Download
+sensor.speedtest_upload:
+  icon: mdi:upload
+  friendly_name: Upload
+sensor.speedtest_ping:
+  icon: mdi:timer
+  friendly_name: Ping
+sensor.glances_sensor_cpu_load:
+  friendly_name: CPU Load
+  icon: mdi:memory
+sensor.glances_sensor_disk_use:
+  friendly_name: Disk
+  icon: mdi:server
+sensor.glances_sensor_ram_use:
+  friendly_name: Memory
+  icon: mdi:server
+sensor.glances_sensor_swap_use:
+  friendly_name: Swap
+  icon: mdi:server
+sun.sun:
+  icon: mdi:weather-sunny
+sensor.weather_humidity:
+  icon: mdi:water-percent
+  friendly_name: Humidity
+sensor.weather_temperature:
+  icon: mdi:thermometer
+  friendly_name: Temperature
+sensor.weather_summary:
+  icon: mdi:leaf
+  friendly_name: Conditions
+sensor.his_morning:
+  icon: mdi:car
+sensor.his_evening:
+  icon: mdi:car
+sensor.her_morning:
+  icon: mdi:car
+sensor.her_evening:
+  icon: mdi:car

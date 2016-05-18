@@ -1,0 +1,19 @@
+#  For a clean interface, it is important to hide
+#  any scripts or scenes that normally shouldn't be
+#  triggered.
+
+#  Hidden scripts.
+
+script.main_lights:
+  hidden: true
+script.holiday:
+  hidden: true
+
+#  Hidden scenes.
+
+scene.morning_bedroom:
+  hidden: true
+scene.nightlight:
+  hidden: true
+scene.holiday:
+  hidden: true

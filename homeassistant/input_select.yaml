@@ -1,0 +1,12 @@
+#  Selector for camera view presets.
+#  "Privacy" points the camera at the wall.
+
+cam_preset:
+  name: Preset
+  options:
+  - Kitchen
+  - Common Area
+  - Entryway
+  - Living Room
+  - Sliding Door
+  - Privacy

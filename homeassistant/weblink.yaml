@@ -1,3 +1,7 @@
+#  Weblinks are links that show up in the UI for
+#  the convenience of the user. Mainly links to
+#  relevant external services.
+
 entities:
 - name: Router
   url: http://192.168.1.1/
@@ -6,7 +10,7 @@ entities:
   url: "http://twitch.tv/directory/game/Age of Empires II%3A The Conquerors"
   icon: mdi:twitch
 - name: Multi-room Music Player
-  url: http://automation:6681/moped
+  url: http://automation:6681/mopify
 - name: Living Room Music Player
   url: http://automation:6680/moped
 - name: Bedroom Music Player

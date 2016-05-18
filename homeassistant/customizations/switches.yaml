@@ -1,0 +1,31 @@
+switch.sleeping:
+  icon: mdi:sleep
+switch.smart_socket_1:
+  friendly_name: Colored Light String
+  icon: mdi:led-on
+switch.smart_socket_2:
+  friendly_name: Christmas Tree Lights
+  icon: mdi:pine-tree
+switch.vacation:
+  icon: mdi:airplane
+switch.guests:
+  icon: mdi:human-male-female
+switch.presence:
+  icon: mdi:account-multiple
+  friendly_name: Detect Presence
+switch.detect_motion:
+  icon: mdi:walk
+switch.nightlights:
+  icon: mdi:weather-night
+  friendly_name: Nightlight
+switch.alert_motion:
+  icon: mdi:walk
+switch.alert_delays:
+  icon: mdi:car
+switch.twitch:
+  icon: mdi:twitch
+switch.monitors:
+ icon: mdi:monitor
+switch.sound:
+  icon: mdi:volume-high
+
