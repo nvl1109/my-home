@@ -1,6 +1,30 @@
 # Home Assistant
 
+## Screenshot
+
+![UI](ha_screenshot.png)
+
 ## Configuration Best Pratices
+
+### More than one entity
+
+Always use a YAML list when you have multiple entries (Style #1 from the documentation).
+
+Yes:
+```yaml
+sensor:
+- platform: mqtt
+- platform: forecastio
+```
+
+No:
+``` yaml
+sensor:
+  platform: mqtt
+  
+sensor 2:
+  platform: forecastio
+```
 
 ### When to use `!env_var`
 
