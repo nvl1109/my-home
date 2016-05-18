@@ -12,11 +12,9 @@ Always use a YAML list when you have multiple entries (Style #1 from the documen
 
 Yes:
 ```yaml
-sensor
+sensor:
 - platform: mqtt
-  ...
 - platform: forecastio
-  ...
 ```
 
 No:
