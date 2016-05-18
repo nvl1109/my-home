@@ -1,3 +1,9 @@
+#  Lights that are on should turn off if
+#  no motion has been detected for awhile.
+#  If the motion detector state has been 'no'
+#  for at least a certain number of minutes,
+#  then it is safe to turn off the lights.
+
 alias: Living Room Timer
 trigger:
   platform: state
@@ -12,13 +18,6 @@ condition:
 - condition: state
   entity_id: light.living_room__hall
   state: 'on'
-- condition: state
-  entity_id: switch.sleeping
-  state: 'off'
-- condition: numeric_state
-  entity_id: sun.sun
-  value_template: '{{ state.attributes.elevation }}'
-  below: !env_var SUNSET_ELEVATION
 action:
   service: homeassistant.turn_off
   entity_id: light.living_room__hall

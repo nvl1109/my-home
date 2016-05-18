@@ -1,3 +1,9 @@
+#  Turn on the lights when motion is detected.
+#  But wait, there are some of reasons to not turn on.
+#  - It is daytime
+#  - Occupants are sleeping
+#  - The light is already on (HA handles this, but it pollutes the log)
+
 alias: Bathroom Motion
 trigger:
   platform: state

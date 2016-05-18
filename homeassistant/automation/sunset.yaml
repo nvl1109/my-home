@@ -1,3 +1,5 @@
+#  Turn the lights on at sunset.
+
 alias: Turn on light when sun sets
 trigger:
   platform: numeric_state
@@ -6,8 +8,11 @@ trigger:
   below: !env_var SUNSET_ELEVATION
 condition:
 - condition: state
+  entity_id: switch.presence
+  state: 'on'
+- condition: state
   entity_id: group.all_devices
-  state: home
+  state: 'home'
 - condition: state
   entity_id: switch.vacation
   state: 'off'

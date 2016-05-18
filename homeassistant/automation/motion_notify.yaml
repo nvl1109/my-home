@@ -1,13 +1,14 @@
+#  Alert if unexpected motion is detected. Motion
+#  is classified as unexpected if no tracked devices
+#  are home and guests aren't present.
+
 alias: Unexpected motion
 trigger:
 - platform: state
-  entity_id: sensor.living_room_motion
-  state: 'yes'
-- platform: state
-  entity_id: sensor.bedroom_motion
-  state: 'yes'
-- platform: state
-  entity_id: sensor.craft_room_motion
+  entity_id:
+  - sensor.living_room_motion
+  - sensor.bedroom_motion
+  - sensor.craft_room_motion
   state: 'yes'
 condition:
 - condition: state
@@ -17,19 +18,13 @@ condition:
   entity_id: switch.alert_motion
   state: 'on'
 - condition: state
+  entity_id: switch.guests
+  state: 'off'
+- condition: state
   entity_id: group.all_devices
   state: 'not_home'
 action:
   service: notify.notify
-  data:
+  data_template:
     message: >
-      Unexpected motion detected in
-      {% if states.sensor.craft_room_motion.state == 'yes' -%}
-        craft room
-      {% endif -%}
-      {% if states.sensor.living_room_motion.state == 'yes' -%}
-        living room
-      {% endif -%}
-      {% if states.sensor.bedroom_motion.state == 'yes' -%}
-        bedroom
-      {% endif -%}
+      Unexpected motion detected in the {{ trigger.entity_id.split('.')[1].replace('_motion', '').replace('_',' ') }}

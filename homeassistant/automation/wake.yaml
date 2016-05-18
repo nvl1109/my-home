@@ -1,8 +1,12 @@
+#  When the sleep switch turns off,
+#  fade on the bedroom light.
+
 alias: Wake Up
 trigger:
   platform: state
   entity_id: switch.sleeping
   state: 'off'
 action:
-  service: homeassistant.turn_on
-  entity_id: script.wake
+- service: scene.turn_on
+  data:
+    entity_id: scene.morning_bedroom
