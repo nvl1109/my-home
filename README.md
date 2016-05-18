@@ -1,5 +1,9 @@
 # Home Assistant
 
+## Screenshot
+
+![UI](ha_screenshot.png)
+
 ## Configuration Best Pratices
 
 ### When to use `!env_var`
