@@ -15,8 +15,7 @@ Rooms:
 Security:
   view: yes
   entities:
-  - camera.camera
-  - input_select.cam_preset
+  - group.camera
 Media:
   view: yes
   entities:
@@ -127,3 +126,30 @@ Commute:
 - sensor.his_evening
 - sensor.her_morning
 - sensor.her_evening
+Camera:
+- camera.camera
+- input_select.cam_preset
+Holiday:
+- script.holiday
+- switch.smart_socket_1
+- switch.smart_socket_2
+# This is a special view for taking a screenshot of all entities.
+Screenshot:
+  view: yes
+  entities:
+  - group.bedroom
+  - group.living_room
+  - group.craft_room
+  - group.multiroom_audio
+  - group.camera
+  - group.commute
+  - group.people
+  - group.outdoors
+  - group.scenes
+  - group.computer
+  - group.twitch
+  - group.processes
+  - group.network
+  - group.server
+  - group.home_assistant
+  - group.holiday
