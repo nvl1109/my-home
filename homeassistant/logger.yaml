@@ -4,3 +4,4 @@ logs:
   homeassistant.components.device_tracker.actiontec: warn
   homeassistant.components.media_player: warn
   homeassistant.components.sensor: warn
+  homeassistant.components.http: warn

@@ -15,6 +15,12 @@ condition:
 - condition: state
   entity_id: device_tracker.his_phone
   state: 'home'
+- condition: state
+  entity_id: switch.sleeping
+  state: 'no'
+- condition: state
+  entity_id: switch.twitch
+  state: 'yes'
 action:
   service: notify.notify
   data_template:

@@ -7,6 +7,12 @@ condition:
 - condition: time
   after: '07:00:00'
   before: '08:30:00'
+  weekday:
+  - mon
+  - tue
+  - wed
+  - thu
+  - fri
 - condition: state
   entity_id: switch.alert_delays
   state: 'on'

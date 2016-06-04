@@ -2,11 +2,17 @@ alias: Commute delay - his evening
 trigger:
   platform: numeric_state
   entity_id: sensor.his_evening
-  above: 30
+  above: 25
 condition:
 - condition: time
   after: '15:00:00'
   before: '16:30:00'
+  weekday:
+  - mon
+  - tue
+  - wed
+  - thu
+  - fri
 - condition: state
   entity_id: switch.alert_delays
   state: 'on'

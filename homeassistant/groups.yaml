@@ -83,6 +83,7 @@ Outdoors:
 - sun.sun
 - sensor.weather_temperature
 - sensor.weather_humidity
+- camera.weather_radar
 Scenes:
 - scene.lights_on
 - scene.lights_off
