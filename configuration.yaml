@@ -56,10 +56,10 @@ device_tracker: !include device_trackers.yaml
 # media_player: !include media_players.yaml
 
 ###  Cameras  ###
-# camera: !include cameras.yaml
+camera: !include cameras.yaml
 
 ###  Lights  ###
-light: !include light.yaml
+light: !include_dir_merge_list lights
 
 ###  Switches  ###
 #  Switches are anything (hardware or software) that can turn

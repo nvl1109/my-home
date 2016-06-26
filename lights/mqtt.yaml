@@ -1,0 +1,8 @@
+- platform: mqtt
+  name: "Left Lamp"
+  state_topic: "light/leftlamp/state"
+  command_topic: "light/leftlamp/state"
+  qos: 1
+  payload_on: "1"
+  payload_off: "0"
+  retain: true

@@ -1,156 +1,19 @@
 default_view:
   view: yes
   entities:
-  - light.living_room__hall
-  - light.bedroom
-  - light.craft_room
-  - switch.sleeping
-  - group.multiroom_audio
+  - switch.left_lamp_switch
+  - light.left_lamp
+  - sensor.bed_room_humidity
+  - sensor.bed_room_motion
+  - sensor.bed_room_temperature
+  - device_tracker
+bed_room:
+  - switch.left_lamp_switch
+  - light.left_lamp
+  - sensor.bed_room_humidity
+  - sensor.bed_room_motion
+  - sensor.bed_room_temperature
 Rooms:
   view: yes
   entities:
-  - group.living_room
-  - group.craft_room
-  - group.bedroom
-Security:
-  view: yes
-  entities:
-  - group.camera
-Media:
-  view: yes
-  entities:
-  - media_player.craft_room
-  - media_player.bedroom
-  - media_player.living_room
-  - media_player.craft_room_client
-  - media_player.bedroom_client
-  - media_player.living_room_client
-  - media_player.desktop_client
-  - weblink.craft_room_music_player
-  - weblink.bedroom_music_player
-  - weblink.living_room_music_player
-  - group.multiroom_audio
-  - group.tv
-Multi-room Audio:
-- media_player.multiroom_audio
-- weblink.multiroom_music_player
-TV:
-- media_player.amazon_fire_tv
-- media_player.living_room
-- media_player.living_room_client
-- weblink.living_room_music_player
-Other:
-  view: yes
-  entities:
-  - group.twitch
-  - group.people
-  - group.outdoors
-  - group.scenes
-  - group.computer
-Admin:
-  view: yes
-  entities:
-  - group.home_assistant
-  - group.network
-  - group.server
-  - group.processes
-Processes:
-- sensor.mosquitto
-- sensor.firetvserver
-- sensor.glances
-- sensor.mopidy
-- sensor.mopidysnap
-- sensor.snapclient
-- sensor.snapserver
-Network:
-- sensor.speedtest_upload
-- sensor.speedtest_download
-- sensor.speedtest_ping
-- weblink.router
-Server:
-- sensor.glances_sensor_cpu_load
-- sensor.glances_sensor_disk_use
-- sensor.glances_sensor_ram_use
-- sensor.glances_sensor_swap_use
-People:
-- device_tracker.his_phone
-- device_tracker.her_phone
-- switch.sleeping
-- switch.vacation
-- switch.guests
-Outdoors:
-- sensor.weather_summary
-- sun.sun
-- sensor.weather_temperature
-- sensor.weather_humidity
-- camera.weather_radar
-Scenes:
-- scene.lights_on
-- scene.lights_off
-- scene.romantic
-- scene.disco
-Computer:
-- switch.sound
-- switch.monitors
-Living Room:
-- sensor.living_room_temperature
-- sensor.living_room_humidity
-- sensor.living_room_motion
-- light.living_room__hall
-- switch.cat_toy
-Craft Room:
-- sensor.craft_room_temperature
-- sensor.craft_room_humidity
-- sensor.craft_room_motion
-- light.craft_room
-Bedroom:
-- sensor.bedroom_temperature
-- sensor.bedroom_humidity
-- sensor.bedroom_motion
-- light.bedroom
-- light.bathroom
-Twitch:
-- sensor.twitch_fopt_membrillo
-- sensor.twitch_vooblyofficial
-- sensor.twitch_voobly_stream
-- sensor.twitch_t90official
-- weblink.twitch
-Home Assistant:
-- switch.detect_motion
-- switch.presence
-- switch.nightlights
-- switch.alert_motion
-- switch.alert_delays
-- switch.twitch
-Commute:
-- sensor.his_morning
-- sensor.his_evening
-- sensor.her_morning
-- sensor.her_evening
-Camera:
-- camera.camera
-- input_select.cam_preset
-Holiday:
-- script.holiday
-- switch.smart_socket_1
-- switch.smart_socket_2
-# This is a special view for taking a screenshot of all entities.
-Screenshot:
-  view: yes
-  entities:
-  - group.bedroom
-  - group.living_room
-  - group.craft_room
-  - group.multiroom_audio
-  - group.camera
-  - group.commute
-  - group.people
-  - group.outdoors
-  - group.scenes
-  - group.computer
-  - group.twitch
-  - group.processes
-  - group.network
-  - group.server
-  - group.home_assistant
-  - group.holiday
+  - group.bed_room
