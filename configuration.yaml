@@ -4,14 +4,11 @@
 #                                                  #
 ####################################################
 
-###  Global configuration ###
-#  Note that `customize` is nested within `homeassistant`.
-
 homeassistant:
-  name: Home
+  name: My Home
   latitude: !env_var HOME_LATITUDE
   longitude: !env_var HOME_LONGITUDE
-  temperature_unit: F
+  temperature_unit: C
   time_zone: !env_var HASS_TIMEZONE
   customize: !include_dir_merge_named customizations
 
@@ -29,14 +26,19 @@ zone:
 
 ###  MQTT  ###
 mqtt:
-  broker: 127.0.0.1
+  broker: localhost
   port: 1883
-  client_id: hass
+  client_id: home-assistant-1
   keepalive: 60
+  username: !env_var MQTT_USERNAME
+  password: !env_var MQTT_PASSWORD
+  # certificate: /home/paulus/dev/addtrustexternalcaroot.crt
+  protocol: 3.1
 
 ###  HTTP  ###
 http:
   api_password: !env_var HASS_API_PASSWORD
+  server_port: 8000
 
 ####################################################
 #                                                  #
@@ -51,10 +53,10 @@ device_tracker: !include device_trackers.yaml
 ###  Media Players  ###
 #  Media players include anything (hardware or software) that
 #  controls media (music, video, etc).
-media_player: !include media_players.yaml
+# media_player: !include media_players.yaml
 
 ###  Cameras  ###
-camera: !include cameras.yaml
+# camera: !include cameras.yaml
 
 ###  Lights  ###
 light: !include light.yaml
@@ -81,7 +83,7 @@ script: !include_dir_named scripts
 automation: !include_dir_list automation
 
 ###  Notification  ###
-notify: !include notify.yaml
+# notify: !include notify.yaml
 
 ###  Weblinks  ###
 weblink: !include weblink.yaml
@@ -90,7 +92,7 @@ weblink: !include weblink.yaml
 input_select: !include input_select.yaml
 
 ###  Shell Commands  ###
-shell_command: !include shell_commands.yaml
+# shell_command: !include shell_commands.yaml
 
 ###  Logger  ###
 logger: !include logger.yaml

@@ -9,11 +9,3 @@ entities:
 - name: Twitch
   url: "http://twitch.tv/directory/game/Age of Empires II%3A The Conquerors"
   icon: mdi:twitch
-- name: Multi-room Music Player
-  url: http://automation:6681/mopify
-- name: Living Room Music Player
-  url: http://automation:6680/moped
-- name: Bedroom Music Player
-  url: http://bedroom:6680/mopify
-- name: Craft Room Music Player
-  url: http://craftroom:6680/mopify

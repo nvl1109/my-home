@@ -1,0 +1,8 @@
+env_var
+sftp-config.json
+home-assistant.log
+*desktop.ini
+deps
+.HA_VERSION
+home-assistant.db
+known_devices.yaml

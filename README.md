@@ -1,9 +1,5 @@
 # Home Assistant
 
-## Screenshot
-
-![UI](ha_screenshot.png)
-
 ## Configuration Best Pratices
 
 ### More than one entity
@@ -21,7 +17,7 @@ No:
 ``` yaml
 sensor:
   platform: mqtt
-  
+
 sensor 2:
   platform: forecastio
 ```

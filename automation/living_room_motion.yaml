@@ -19,10 +19,6 @@ condition:
 - condition: state
   entity_id: switch.sleeping
   state: 'off'
-- condition: numeric_state
-  entity_id: sun.sun
-  value_template: '{{ state.attributes.elevation }}'
-  below: !env_var SUNSET_ELEVATION
 action:
   service: homeassistant.turn_on
   entity_id: light.living_room__hall
